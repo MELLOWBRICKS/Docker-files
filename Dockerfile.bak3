@@ -1,0 +1,17 @@
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+
+
+# Stage 2: Copy only what we need
+FROM node:20-alpine
+WORKDIR /app
+
+# Copy installed modules and source code
+COPY --from=builder /app/node_modules ./node_modules
+COPY . .
+
+EXPOSE 3000
+CMD ["npm", "start"]

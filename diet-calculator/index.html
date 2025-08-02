@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Diet Calculator</h1>
+            <p>Calculate your personalized diet plan based on your goals</p>
+        </header>
+
+        <div class="calculator-section">
+            <form id="dietForm">
+                <div class="form-group">
+                    <label for="age">Age (years)</label>
+                    <input type="number" id="age" required min="1" max="120">
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="currentWeight">Current Weight (kg)</label>
+                        <input type="number" id="currentWeight" required min="1" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="currentHeight">Current Height (cm)</label>
+                        <input type="number" id="currentHeight" required min="1" step="0.1">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="goalWeight">Goal Weight (kg)</label>
+                        <input type="number" id="goalWeight" required min="1" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="activityLevel">Activity Level</label>
+                        <select id="activityLevel" required>
+                            <option value="">Select Activity Level</option>
+                            <option value="1.2">Sedentary (little/no exercise)</option>
+                            <option value="1.375">Light (light exercise 1-3 days/week)</option>
+                            <option value="1.55">Moderate (moderate exercise 3-5 days/week)</option>
+                            <option value="1.725">Active (hard exercise 6-7 days/week)</option>
+                            <option value="1.9">Very Active (very hard exercise, physical job)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="goal">Goal</label>
+                    <select id="goal" required>
+                        <option value="">Select Goal</option>
+                        <option value="lose">Lose Weight</option>
+                        <option value="maintain">Maintain Weight</option>
+                        <option value="gain">Gain Weight</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="calculate-btn">Calculate Diet Plan</button>
+            </form>
+        </div>
+
+        <div id="results" class="results-section" style="display: none;">
+            <h2>Your Personalized Diet Plan</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Current BMI</h3>
+                    <span id="currentBMI" class="stat-value"></span>
+                </div>
+                <div class="stat-card">
+                    <h3>Goal BMI</h3>
+                    <span id="goalBMI" class="stat-value"></span>
+                </div>
+                <div class="stat-card">
+                    <h3>Daily Calories</h3>
+                    <span id="dailyCalories" class="stat-value"></span>
+                </div>
+                <div class="stat-card">
+                    <h3>Weight Change</h3>
+                    <span id="weightChange" class="stat-value"></span>
+                </div>
+            </div>
+
+            <div class="macros-section">
+                <h3>Daily Macronutrients</h3>
+                <div class="macros-grid">
+                    <div class="macro-card">
+                        <h4>Protein</h4>
+                        <span id="protein" class="macro-value"></span>
+                        <small id="proteinCalories"></small>
+                    </div>
+                    <div class="macro-card">
+                        <h4>Carbohydrates</h4>
+                        <span id="carbs" class="macro-value"></span>
+                        <small id="carbsCalories"></small>
+                    </div>
+                    <div class="macro-card">
+                        <h4>Fats</h4>
+                        <span id="fats" class="macro-value"></span>
+                        <small id="fatsCalories"></small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="meal-plan-section">
+                <h3>Sample Meal Plan</h3>
+                <div id="mealPlan" class="meal-plan-grid"></div>
+            </div>
+
+            <div class="food-list-section">
+                <h3>Recommended Foods & Portions</h3>
+                <div id="foodList" class="food-categories"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
