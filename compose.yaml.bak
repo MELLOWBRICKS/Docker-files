@@ -1,0 +1,16 @@
+services:
+  web:
+    image: diet-calc:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./diet-calculator:/var/www/html/
+
+
+  F1-page:
+    image: diet-calc:latest
+    ports:
+      - "3000:80"
+    volumes:
+      - ./Websites/:/var/www/html/
+
